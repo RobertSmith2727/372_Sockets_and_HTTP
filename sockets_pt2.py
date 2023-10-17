@@ -10,8 +10,8 @@ plug.connect(IP)
 get = b"GET /wireshark-labs/HTTP-wireshark-file3.html HTTP/1.1\r\nHost:gaia.cs.umass.edu\r\n\r\n"
 plug.sendall(get)
 
-acknowledgement = plug.recv(10000)
+response = plug.recv(10000)
 
-print(acknowledgement.decode())
+print(response.decode())
 
 

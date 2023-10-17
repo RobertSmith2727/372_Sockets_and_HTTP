@@ -13,6 +13,13 @@ data = b"HTTP/1.1 200 OK\r\n"\
 getter = "GET /HTTP/1.1\r\nHost: 127.0.0.1\r\n\r\n"
 plug.bind(localHost)
 plug.listen()
-conn, address = plug.accept()
-conn.send(data)
+
+connection, address = plug.accept()
+response = connection.recv(10000)
+print(response.decode())
+connection.send(data)
+print(data)
 plug.close()
+
+
+
